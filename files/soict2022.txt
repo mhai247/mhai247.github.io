@@ -1,17 +1,7 @@
-@inproceedings{10.1145/3568562.3568654,
-author = {Vu, Minh Hai and T. T. Nguyen, Giang and Tran, Hai Dang and Nguyen, Thanh Trung and Do, Phan Thuan and Nguyen, Phi Le and Nguyen, Kien},
-title = {An Empirical Study of MPQUIC Schedulers in Mobile Wireless Networks},
-year = {2022},
-isbn = {9781450397254},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-url = {https://doi.org/10.1145/3568562.3568654},
-doi = {10.1145/3568562.3568654},
-abstract = {Multipath QUIC (MPQUIC), an emerging multipath transport protocol (MTP) that inherits the advantages of the canonical multipath TCP (MPTCP) and the widespread QUIC, potentially plays a vital role in 5G and beyond. MPQUIC can exploit multiple networks (e.g., Wi-Fi, LTE, 5G) on a mobile device to boost the quality of services while efficiently utilizing network resources. In MPQUIC, the scheduler, which is in charge of concurrently scheduling data transmission in several paths, largely impacts the protocols’ performance, especially in dynamic environments. In fact, in the literature, a considerable number of MTP schedulers for MPQUIC have been proposed. Unfortunately, their performances have been primarily evaluated in static networks without (or simply) considering mobile ones. Hence, this work attempts to investigate the performance of MPQUIC schedulers in the mobile context, aiming to fill the literature gap. Specifically, we implement and assess the performance of five MPQUIC schedulers in various mobility patterns using the Mininet-WiFi emulator. More importantly, we introduce q-ReLeS, an extension of an MPTCP scheduler called ReLeS for MPQUIC. The experimental results show that q-ReLeS reduces the download time from to compared to the others. Besides, the empirical investigation demonstrates that mobility and velocity patterns substantially impact the performance of MPQUIC schedulers.},
-booktitle = {Proceedings of the 11th International Symposium on Information and Communication Technology},
-pages = {193–200},
-numpages = {8},
-keywords = {MPQUIC, mobile wireless network, mobility model, multipath scheduler},
-location = {Hanoi, Vietnam},
-series = {SoICT '22}
+@inproceedings{vu2022empirical,
+  title={An empirical study of mpquic schedulers in mobile wireless networks},
+  author={Vu, Minh Hai and TT Nguyen, Giang and Tran, Hai Dang and Nguyen, Thanh Trung and Do, Phan Thuan and Nguyen, Phi Le and Nguyen, Kien},
+  booktitle={Proceedings of the 11th International Symposium on Information and Communication Technology},
+  pages={193--200},
+  year={2022}
 }
