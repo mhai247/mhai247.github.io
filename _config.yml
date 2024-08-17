@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Minh Hai Vu"
+title                    : "Homepage"
 title_separator          : "-"
-name                     : &name "Minh Hai Vu"
+name                     : &name "Homepage"
 description              : &description "A self-motivated research student in the field of AI-Empowered Communication Networks"
 url                      : https://mhai247.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
