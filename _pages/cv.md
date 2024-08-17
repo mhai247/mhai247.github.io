@@ -11,35 +11,31 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Eng. in Information Technology, Hanoi University of Science and Technology, 2024 (expected)
+
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **July 2021 - Present**: AIoT research group at [BKAI center](https://bkai.ai), HUST
+  * Research Assistant - Applying AI in optimizing communication networks
+  * Supervisors: Assoc. Prof. Phi Le Nguyen (HUST, Vietnam) and Assoc. Prof. Kien Nguyen(Chiba Univ., Japan)
+  * Topics: Multipath transport protocols, Multipath schedulers.
+  * Description: Applying RL/DRL to enhance the performance of MPQUIC schedulers. Specifically, evaluating existing MPQUIC schedulers and proposing novel RL-based schedulers forwireless networks.
+  * Skills: Python, Golang, RL/DRL, Network emulation, Data visualization, Academic writing.
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programmmig Languages: Python, Golang, C/C++, R, SQL
+* Data Analysis Tools: Numpy, Pandas
+* Data Visualization Tools: R, Matplotlib, Seaborn
+* Deep Learning Frameworks: Pytorch, Libtorch, Gotch
+* Network Emulator: Mininet, Mininet-WiFi
+* Traffic Control Tools: Linux TC command
+* Operating Systems: Windows, Linux, MacOS
+* Database Management: MySQL, SQL Server, MongoDB
+* Editor: Latex, VScode, MS Office
+* Others: Teamwork, Leadership, Presentation, Debating
 
 Publications
 ======
@@ -47,18 +43,18 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Talks
+<!-- Talks
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
-Teaching
+<!-- Teaching
 ======
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
-Service and leadership
+<!-- Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
