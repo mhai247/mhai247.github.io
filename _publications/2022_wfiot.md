@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/2022_wfiot
 excerpt: 'Thanh Trung Nguyen, **Minh Hai Vu**, Phi Le Nguyen, Phan Thuan Do, Kien Nguyen'
 venue: '2022 IEEE 8th World Forum on Internet of Things (WF-IoT)'
-slidesurl: 'http://mhai247.github.io/files/wfiot2022.bib'
+slidesurl: 'http://mhai247.github.io/files/wfiot2022.txt'
 paperurl: 'https://ieeexplore.ieee.org/abstract/document/10152217'
 ---
 

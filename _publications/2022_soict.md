@@ -5,7 +5,7 @@ category: conferences
 excerpt: '**Minh Hai Vu**, Thanh Trung Nguyen, Phan Thuan Do, Phi Le Nguyen, Kien Nguyen'
 permalink: /publication/soict2022
 venue: '2022 Proceedings of the 11th International Symposium on Information and Communication Technology (SoICT)'
-slidesurl: 'http://mhai247.github.io/files/soict2022.bib'
+slidesurl: 'http://mhai247.github.io/files/soict2022.txt'
 paperurl: 'https://dl.acm.org/doi/abs/10.1145/3568562.3568654'
 # citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
 ---

@@ -5,7 +5,7 @@ category: manuscripts
 permalink: /publication/2024_comcom
 excerpt: 'Trung Thanh Nguyen, **Minh Hai Vu**, Thi Ha Ly Dinh, Phi Le Nguyen, Kien Nguyen'
 venue: 'Computer Communications Journal'
-slidesurl: 'http://mhai247.github.io/files/comcom2024.bib'
+slidesurl: 'http://mhai247.github.io/files/comcom2024.txt'
 paperurl: 'https://www.sciencedirect.com/science/article/abs/pii/S0140366424002639'
 ---
 
