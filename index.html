@@ -1,193 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f7f9fa;
-            margin: 0;
-            padding: 0;
-            color: #222;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            padding: 40px 32px;
-        }
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 24px;
-            margin-bottom: 32px;
-        }
-        .profile-photo {
-            width: 120px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #e0e0e0;
-        }
-        .profile-info h1 {
-            margin: 0 0 8px 0;
-            font-size: 2.2em;
-        }
-        .profile-info p {
-            margin: 4px 0;
-            color: #555;
-        }
-        section {
-            margin-bottom: 32px;
-        }
-        h2 {
-            color: #2a4d69;
-            margin-bottom: 12px;
-            font-size: 1.3em;
-            border-left: 4px solid #2a4d69;
-            padding-left: 10px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .contact-list {
-            list-style: none;
-            padding: 0;
-        }
-        .contact-list li {
-            margin-bottom: 6px;
-        }
-        .publication {
-            margin-bottom: 10px;
-        }
-        .education {
-            margin-bottom: 10px;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 16px 4vw;
-                margin: 16px 0;
-            }
-            .profile-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-                padding-bottom: 16px;
-                margin-bottom: 24px;
-            }
-            .profile-photo {
-                width: 90px;
-                height: 120px;
-            }
-            .profile-info h1 {
-                font-size: 1.4em;
-            }
-            h2 {
-                font-size: 1.1em;
-                padding-left: 7px;
-            }
-            section {
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Minh Hai Vu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --ink:#152138;
+    --navy:#1f3a5f;
+    --text:#2c3650;
+    --slate:#4a566f;
+    --muted:#7b86a0;
+    --line:#e4e8f0;
+    --line-soft:#eef1f6;
+    --paper:#fbfcfe;
+    --panel:#f3f6fa;
+    --gold:#9a7b3f;
+    --gold-bg:#f6f0e2;
+    --gold-line:#e6d9bc;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Public Sans',system-ui,sans-serif;
+    font-size:16.5px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:#d7e3f3;}
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:72px 32px 96px;
+  }
+  a{color:var(--navy);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s ease,color .15s ease;}
+  a:hover{border-color:var(--navy);}
+
+  /* Header */
+  .head{
+    display:grid;
+    grid-template-columns:128px 1fr;
+    gap:34px;
+    align-items:center;
+    padding-bottom:34px;
+    border-bottom:1px solid var(--line);
+  }
+  .portrait{
+    width:128px;height:160px;
+    object-fit:cover;
+    border-radius:8px;
+    background:var(--panel);
+    box-shadow:0 1px 0 rgba(21,33,56,.04), 0 10px 28px -14px rgba(21,33,56,.28);
+  }
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 10px;
+  }
+  .name{
+    font-family:'Newsreader',serif;
+    font-weight:500;
+    font-size:43px;
+    line-height:1.02;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin:0 0 12px;
+  }
+  .affil{margin:0;color:var(--slate);font-size:15.5px;line-height:1.5;}
+  .affil .role{color:var(--text);font-weight:600;}
+  .contact{
+    margin:14px 0 0;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--slate);
+  }
+
+  /* Sections */
+  section{margin-top:52px;}
+  .sec-head{
+    display:flex;align-items:baseline;gap:14px;
+    margin-bottom:22px;
+  }
+  .sec-head h2{
+    font-family:'Newsreader',serif;
+    font-weight:500;
+    font-size:24px;
+    color:var(--ink);
+    margin:0;
+    letter-spacing:-.005em;
+    white-space:nowrap;
+  }
+  .sec-head .rule{flex:1;height:1px;background:var(--line);}
+  .sec-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--muted);
+  }
+
+  /* Interests */
+  .tags{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0;}
+  .tags li{
+    font-size:14px;
+    color:var(--navy);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 15px;
+  }
+
+  /* Awards highlight */
+  .awards{
+    background:var(--gold-bg);
+    border:1px solid var(--gold-line);
+    border-radius:12px;
+    padding:24px 26px 22px;
+  }
+  .awards .sec-head{margin-bottom:18px;}
+  .awards .sec-head h2{color:#5e4a1f;}
+  .award{
+    display:grid;
+    grid-template-columns:22px 1fr auto;
+    gap:14px;
+    align-items:baseline;
+    padding:13px 0;
+    border-top:1px solid var(--gold-line);
+  }
+  .award:first-of-type{border-top:none;}
+  .medal{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--gold);
+    margin-top:7px;
+    box-shadow:0 0 0 4px rgba(154,123,63,.12);
+  }
+  .award .title{color:#3f3a2c;font-weight:500;}
+  .award .where{color:#7c6f4e;font-size:14px;display:block;margin-top:1px;}
+  .award .year{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;color:var(--gold);white-space:nowrap;
+  }
+
+  /* News timeline */
+  .news{list-style:none;padding:0;margin:0;}
+  .news li{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:18px;
+    padding:11px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .news li:first-child{border-top:none;}
+  .news .date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;color:var(--muted);padding-top:2px;
+  }
+  .news .what{color:var(--slate);}
+
+  /* Publications */
+  .pub-group{margin-top:24px;}
+  .pub-group:first-child{margin-top:6px;}
+  .pub-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 12px;
+  }
+  ol.pubs{list-style:none;counter-reset:p;margin:0;padding:0;}
+  ol.pubs li{
+    counter-increment:p;
+    display:grid;
+    grid-template-columns:30px 1fr;
+    gap:14px;
+    padding:13px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  ol.pubs li::before{
+    content:counter(p,decimal-leading-zero);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--muted);padding-top:3px;
+  }
+  .pub .ttl{color:var(--ink);font-weight:500;}
+  .pub .meta{display:block;margin-top:4px;}
+  .pub .authors{display:block;color:var(--slate);font-size:14.5px;}
+  .pub .venue{display:block;margin-top:2px;font-family:'Newsreader',serif;font-style:italic;font-size:15.5px;color:var(--navy);}
+  .pub u{color:var(--navy);text-decoration:none;border-bottom:1.5px solid #c5d3e6;font-weight:600;}
+  .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;letter-spacing:.04em;
+    color:var(--gold);
+    background:var(--gold-bg);
+    border:1px solid var(--gold-line);
+    border-radius:5px;
+    padding:1px 7px;
+    margin-left:6px;
+    white-space:nowrap;
+    vertical-align:1px;
+  }
+
+  /* Education */
+  .edu{color:var(--slate);}
+  .edu .deg{color:var(--ink);font-weight:500;}
+
+  footer{
+    margin-top:64px;padding-top:22px;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--muted);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+
+  @media(max-width:600px){
+    .wrap{padding:44px 22px 64px;}
+    .head{grid-template-columns:96px 1fr;gap:20px;}
+    .portrait{width:96px;height:120px;}
+    .name{font-size:33px;}
+    .news li{grid-template-columns:84px 1fr;gap:12px;}
+    .award{grid-template-columns:16px 1fr;}
+    .award .year{grid-column:2;}
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="profile-header">
-
-            <img src="https://drive.google.com/thumbnail?id=1U8madDUrpxx85FDhlvSqkoDx43NQWtIf&sz=s800" alt="Logo" class="profile-photo"/>
-            <div class="profile-info">
-                <h1>Minh Hai Vu</h1>
-                <p>M.Sc Student</p>
-                <p>Graduate School of Engineering</p>
-                <p>The University of Tokyo</p>
-                <ul class="contact-list">
-                    <li>Contact: <a href="mailto:haivm@g.ecc.u-tokyo.ac.jp">haivm[at]g.ecc.u-tokyo.ac.jp</a></li>
-                </ul>
-            </div>
-        </div>
-        <section>
-            <h2>Research Interests</h2>
-            <ul>
-                <li>Computer Networks</li>
-                <li>Multipath Transport</li>
-                <li>Applied AI/ML</li>
-
-            </ul>
-        </section>
-        <section>
-            <h2>News</h2>
-            <ul style="list-style: none; padding-left: 0;">
-                <li><strong>[04-2025]</strong> I got Monbusho (Monbukagakusho) scholarship for a two-year M.Sc program offered by Japanese Government, 2025</li>
-                <li><strong>[12-2024]</strong> I got Best Paper Award at IEEE EUC 2024</li>
-                <li><strong>[09-2024]</strong> I graduated HUST with an excellent degree</li>
-                <li><strong>[05-2024]</strong> I got First Prize at Student Research Conference 2024, HUST</li>
-                <li><strong>[05-2023]</strong> I got Creativity Award at Student Research Conference 2023, HUST</li>
-                <li><strong>[11-2022]</strong> I got 3rd Place Best Student Paper Award at IEEE WF-IoT 2022</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Publications</h2>
-            <div style="margin-bottom: 1.5em;">
-                <h3 style="margin-bottom: 0.5em; color: #2a4d69; border-left: 3px solid #2a4d69; padding-left: 8px;">Journal Articles</h3>
-                <ol class="pub-list" style="margin:0; padding-left: 20px;">
-                    <li class="publication">
-                        Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Kien Nguyen, "A NOVEL FRAMEWORK FOR HTTP/2 OVER MPQUIC: DESIGN AND IMPLEMENTATION", Journal of Science and Technique-Section on Information and Communication Technology
-                    </li>
-                    <li class="publication">
-                        <u>Minh Hai Vu</u>, Thanh Trung Nguyen, Thi Ha Ly Dinh, Thanh-Hung Nguyen, Phi Le Nguyen, Kien Nguyen, Hiroo Sekiya, "Evaluating MPQUIC schedulers in dynamic wireless networks with 2D and 3D mobility", Computer Networks Journal
-                    </li>
-                    <li class="publication">
-                        Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Kien Nguyen, "Analysis and visualization of QUIC protocol deployment in Vietnam", IEICE Communications Express <b>(ComEX Top Downloaded Letter Award)</b>
-                    </li>
-                    <li class="publication">
-                        Trung Thanh Nguyen, <u>Minh Hai Vu</u>, Thi Ha Ly Dinh, Phi Le Nguyen, Kien Nguyen, "FQ-SAT: a Fuzzy Q-learning-based MPQUIC Scheduler for Data Transmission Optimization", Computer Communications Journal
-                    </li>
-                </ol>
-            </div>
-            <div>
-                <h3 style="margin-bottom: 0.5em; color: #2a4d69; border-left: 3px solid #2a4d69; padding-left: 8px;">Conference Papers</h3>
-                <ol class="pub-list" style="margin:0; padding-left: 20px;">
-                    <li class="publication">
-                        <u>Minh Hai Vu</u>, Akihiro Nakao, "Logrα: A DRL-based MPQUIC Scheduler for Managing Periodicity and Heterogeneity in Satellite Networks", 2026 IEEE Consumer Communications & Networking Conference (CCNC)
-                    </li>
-                    <li class="publication">
-                        <u>Minh Hai Vu</u>, Trung Thanh Nguyen, Thi Ha Ly Dinh, Phi Le Nguyen, Kien Nguyen, "LoGra: an LSTM-DDPG Integrated MPQUIC Scheduler for Mobile Video Streaming", 2024 IEEE 100th Vehicular Technology Conference (VTC2024-Fall)
-                    </li>
-                    <li class="publication">
-                        Trung Thanh Nguyen, <u>Minh Hai Vu</u>, Thi Ha Ly Dinh, Phi Le Nguyen, Kien Nguyen, "MuLeS: A Multi-Client Learning-Based MPQUIC Scheduler", 2024 IEEE 21st Consumer Communications & Networking Conference (CCNC)
-                    </li>
-                    <li class="publication">
-                        Le Anh Duc Vu, <u>Minh Hai Vu</u>, Bao Ngoc Tran, Minh Tung Hoang, Duc Anh Nguyen, Minh Quan Hoang, Phi Le Nguyen, "An Automated PM2.5 Analysis and Prediction System with Encoder-Decoder Architecture and Continual Learning Mechanism", 2024 IEEE 23rd International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom) <b>(Best Paper Award)</b>
-                    </li>
-                    <li class="publication">
-                        Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Phan Thuan Do, Kien Nguyen, "A Q-learning-based Multipath Scheduler for Data Transmission Optimization in Heterogeneous Wireless Networks", 2023 IEEE 20th Consumer Communications & Networking Conference (CCNC)
-                    </li>
-                    <li class="publication">
-                        Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Phan Thuan Do, Kien Nguyen, "A Reinforcement Learning-based Multipath Scheduling for Heterogeneous Wireless Networks", 2022 IEEE 8th World Forum on Internet of Things (WF-IoT) <b>(3rd Best Paper Award)</b>
-                    </li>
-                    <li class="publication">
-                        <u>Minh Hai Vu</u>, Thanh Trung Nguyen, Phan Thuan Do, Phi Le Nguyen, Kien Nguyen, "An Empirical Study of MPQUIC Schedulers in Mobile Wireless Networks", 2022 Proceedings of the 11th International Symposium on Information and Communication Technology (SoICT)
-                    </li>
-                </ol>
-            </div>
-        </section>
-        <section>
-            <h2>Education</h2>
-            <div class="education">
-                Eng. in Information Technology, Hanoi University of Science and Technology, 2024
-            </div>
-        </section>
+<div class="wrap">
+  <header class="head">
+    <img class="portrait" src="https://drive.google.com/thumbnail?id=1U8madDUrpxx85FDhlvSqkoDx43NQWtIf&sz=s800" alt="Minh Hai Vu"/>
+    <div>
+      <p class="kicker">
+</p>
+      <h1 class="name">Minh Hai Vu</h1>
+      <p class="affil"><span class="role">M.Sc Student</span>, Graduate School of Engineering<br/>The University of Tokyo</p>
+      <p class="contact"><a href="mailto:haivm@g.ecc.u-tokyo.ac.jp">haivm[at]g.ecc.u-tokyo.ac.jp</a></p>
     </div>
-    <div style="text-align:center; color:#888; font-size:0.95em; margin-top:32px;">
-        Last updated: March, 2026
+  </header>
+
+  <section class="awards" style="background-color: rgb(243, 242, 238); border-color: rgb(238, 229, 209)">
+    <div class="sec-head"><h2>Awards &amp; Honors</h2><span class="rule" style="background:var(--gold-line)"></span></div>
+    <div class="award"><span class="medal"></span><span class="title">ComEX Top Downloaded Letter Award<span class="where">IEICE Communications Express</span></span><span class="year">2026</span></div>
+    <div class="award"><span class="medal"></span><span class="title">Monbukagakusho (MEXT) Scholarship<span class="where">Two-year M.Sc program · Government of Japan</span></span><span class="year">2025</span></div>
+    <div class="award"><span class="medal"></span><span class="title">Best Paper Award<span class="where">IEEE EUC 2024</span></span><span class="year">2024</span></div>
+    <div class="award"><span class="medal"></span><span class="title">First Prize, Student Research Conference<span class="where">Hanoi University of Science &amp; Technology</span></span><span class="year">2024</span></div>
+    <div class="award"><span class="medal"></span><span class="title">Creativity Award, Student Research Conference<span class="where">Hanoi University of Science &amp; Technology</span></span><span class="year">2023</span></div>
+    <div class="award"><span class="medal"></span><span class="title">3rd Place Best Student Paper Award<span class="where">IEEE WF-IoT 2022</span></span><span class="year">2022</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>News</h2><span class="rule"></span></div>
+    <ul class="news">
+      <li><span class="date">Apr 2025</span><span class="what">Awarded the Monbukagakusho (MEXT) scholarship for a two-year M.Sc program offered by the Government of Japan.</span></li>
+      <li><span class="date">Dec 2024</span><span class="what">Received the Best Paper Award at IEEE EUC 2024.</span></li>
+      <li><span class="date">Sep 2024</span><span class="what">Graduated from HUST with an excellent degree.</span></li>
+      <li><span class="date">May 2024</span><span class="what">Won First Prize at the Student Research Conference 2024, HUST.</span></li>
+      <li><span class="date">May 2023</span><span class="what">Received the Creativity Award at the Student Research Conference 2023, HUST.</span></li>
+      <li><span class="date">Nov 2022</span><span class="what">Won 3rd Place Best Student Paper Award at IEEE WF-IoT 2022.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Publications</h2><span class="rule"></span></div>
+
+    <div class="pub-group">
+      <p class="pub-label">Journal Articles</p>
+      <ol class="pubs">
+        <li class="pub"><span><span class="ttl">A Novel Framework for HTTP/2 over MPQUIC: Design and Implementation</span><span class="meta"><span class="authors">Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Kien Nguyen</span><span class="venue">Journal of Science and Technique — Section on ICT</span></span></span></li>
+        <li class="pub"><span><span class="ttl">Evaluating MPQUIC Schedulers in Dynamic Wireless Networks with 2D and 3D Mobility</span><span class="meta"><span class="authors"><u>Minh Hai Vu</u>, Thanh Trung Nguyen, Thi Ha Ly Dinh, Thanh-Hung Nguyen, Phi Le Nguyen, Kien Nguyen, Hiroo Sekiya</span><span class="venue">Computer Networks Journal</span></span></span></li>
+        <li class="pub"><span><span class="ttl">Analysis and Visualization of QUIC Protocol Deployment in Vietnam<span class="badge">ComEX Top Downloaded</span></span><span class="meta"><span class="authors">Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Kien Nguyen</span><span class="venue">IEICE Communications Express</span></span></span></li>
+        <li class="pub"><span><span class="ttl">FQ-SAT: A Fuzzy Q-learning-based MPQUIC Scheduler for Data Transmission Optimization</span><span class="meta"><span class="authors">Trung Thanh Nguyen, <u>Minh Hai Vu</u>, Thi Ha Ly Dinh, Phi Le Nguyen, Kien Nguyen</span><span class="venue">Computer Communications Journal</span></span></span></li>
+      </ol>
     </div>
+
+    <div class="pub-group">
+      <p class="pub-label">Conference Papers</p>
+      <ol class="pubs">
+        <li class="pub"><span><span class="ttl">Logrα: A DRL-based MPQUIC Scheduler for Managing Periodicity and Heterogeneity in Satellite Networks</span><span class="meta"><span class="authors"><u>Minh Hai Vu</u>, Akihiro Nakao</span><span class="venue">IEEE CCNC 2026</span></span></span></li>
+        <li class="pub"><span><span class="ttl">LoGra: An LSTM-DDPG Integrated MPQUIC Scheduler for Mobile Video Streaming</span><span class="meta"><span class="authors"><u>Minh Hai Vu</u>, Trung Thanh Nguyen, Thi Ha Ly Dinh, Phi Le Nguyen, Kien Nguyen</span><span class="venue">IEEE VTC2024-Fall</span></span></span></li>
+        <li class="pub"><span><span class="ttl">MuLeS: A Multi-Client Learning-Based MPQUIC Scheduler</span><span class="meta"><span class="authors">Trung Thanh Nguyen, <u>Minh Hai Vu</u>, Thi Ha Ly Dinh, Phi Le Nguyen, Kien Nguyen</span><span class="venue">IEEE CCNC 2024</span></span></span></li>
+        <li class="pub"><span><span class="ttl">An Automated PM2.5 Analysis and Prediction System with Encoder-Decoder Architecture and Continual Learning<span class="badge">Best Paper</span></span><span class="meta"><span class="authors">Le Anh Duc Vu, <u>Minh Hai Vu</u>, Bao Ngoc Tran, Minh Tung Hoang, Duc Anh Nguyen, Minh Quan Hoang, Phi Le Nguyen</span><span class="venue">IEEE TrustCom 2024</span></span></span></li>
+        <li class="pub"><span><span class="ttl">A Q-learning-based Multipath Scheduler for Data Transmission Optimization in Heterogeneous Wireless Networks</span><span class="meta"><span class="authors">Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Phan Thuan Do, Kien Nguyen</span><span class="venue">IEEE CCNC 2023</span></span></span></li>
+        <li class="pub"><span><span class="ttl">A Reinforcement Learning-based Multipath Scheduling for Heterogeneous Wireless Networks<span class="badge">3rd Best Paper</span></span><span class="meta"><span class="authors">Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Phan Thuan Do, Kien Nguyen</span><span class="venue">IEEE WF-IoT 2022</span></span></span></li>
+        <li class="pub"><span><span class="ttl">An Empirical Study of MPQUIC Schedulers in Mobile Wireless Networks</span><span class="meta"><span class="authors"><u>Minh Hai Vu</u>, Thanh Trung Nguyen, Phan Thuan Do, Phi Le Nguyen, Kien Nguyen</span><span class="venue">SoICT 2022</span></span></span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Education</h2><span class="rule"></span></div>
+    <p class="edu"><span class="deg">Eng. in Information Technology</span><br/>Hanoi University of Science and Technology · 2024</p>
+  </section>
+
+  <footer>
+    <span>Minh Hai Vu</span>
+    <span>Last updated June 2026</span>
+  </footer>
+</div>
 </body>
 </html>
