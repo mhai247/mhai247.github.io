@@ -227,7 +227,40 @@
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
   }
 
+  /* Language switcher */
+  .langbar{
+    position:fixed;
+    top:20px;right:20px;
+    z-index:50;
+    display:flex;
+    gap:2px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:3px;
+    box-shadow:0 1px 0 rgba(21,33,56,.04), 0 10px 24px -16px rgba(21,33,56,.32);
+  }
+  .lang-btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--slate);
+    background:transparent;
+    border:none;
+    border-radius:999px;
+    padding:5px 12px;
+    cursor:pointer;
+    transition:background .15s ease,color .15s ease;
+    line-height:1.4;
+  }
+  .lang-btn:hover{color:var(--ink);}
+  .lang-btn.active{
+    background:var(--navy);
+    color:#fff;
+  }
+
   @media(max-width:600px){
+    .langbar{top:12px;right:12px;}
+    .lang-btn{padding:5px 9px;font-size:11.5px;}
     .wrap{padding:44px 22px 64px;}
     .head{grid-template-columns:96px 1fr;gap:20px;}
     .portrait{width:96px;height:120px;}
@@ -239,6 +272,11 @@
 </style>
 </head>
 <body>
+<nav class="langbar" aria-label="Language">
+  <button class="lang-btn" data-lang="en" type="button">EN</button>
+  <button class="lang-btn" data-lang="ja" type="button" lang="ja">日本語</button>
+  <button class="lang-btn" data-lang="vi" type="button" lang="vi">Tiếng Việt</button>
+</nav>
 <div class="wrap">
   <header class="head">
     <img class="portrait" src="https://drive.google.com/thumbnail?id=129MZJb67RqLuXaLqitMBJwkqCWEDc7f3&sz=s800" alt="Minh Hai Vu"/>
@@ -246,40 +284,40 @@
       <p class="kicker">
 </p>
       <h1 class="name">Minh Hai Vu</h1>
-      <p class="affil"><span class="role">M.Sc Student</span>, Graduate School of Engineering<br/>The University of Tokyo</p>
+      <p class="affil"><span class="role" data-i18n="role">M.Sc Student</span><span data-i18n="school">, Graduate School of Engineering</span><br/><span data-i18n="univ">The University of Tokyo</span></p>
       <p class="contact"><a href="mailto:haivm@g.ecc.u-tokyo.ac.jp">haivm[at]g.ecc.u-tokyo.ac.jp</a></p>
     </div>
   </header>
 
   <section class="awards" style="background-color: rgb(243, 242, 238); border-color: rgb(238, 229, 209)">
-    <div class="sec-head"><h2>Awards &amp; Honors</h2><span class="rule" style="background:var(--gold-line)"></span></div>
-    <div class="award"><span class="medal"></span><span class="title">ComEX Top Downloaded Letter Award<span class="where">IEICE Communications Express</span></span><span class="year">2026</span></div>
-    <div class="award"><span class="medal"></span><span class="title">Monbukagakusho (MEXT) Scholarship<span class="where">Two-year M.Sc program · Government of Japan</span></span><span class="year">2025</span></div>
-    <div class="award"><span class="medal"></span><span class="title">Best Paper Award<span class="where">IEEE EUC 2024</span></span><span class="year">2024</span></div>
-    <div class="award"><span class="medal"></span><span class="title">First Prize, Student Research Conference<span class="where">Hanoi University of Science &amp; Technology</span></span><span class="year">2024</span></div>
-    <div class="award"><span class="medal"></span><span class="title">Creativity Award, Student Research Conference<span class="where">Hanoi University of Science &amp; Technology</span></span><span class="year">2023</span></div>
-    <div class="award"><span class="medal"></span><span class="title">3rd Place Best Student Paper Award<span class="where">IEEE WF-IoT 2022</span></span><span class="year">2022</span></div>
+    <div class="sec-head"><h2 data-i18n="awards">Awards &amp; Honors</h2><span class="rule" style="background:var(--gold-line)"></span></div>
+    <div class="award"><span class="medal"></span><span class="title"><span data-i18n="a1t">ComEX Top Downloaded Letter Award</span><span class="where" data-i18n="a1w">IEICE Communications Express</span></span><span class="year">2026</span></div>
+    <div class="award"><span class="medal"></span><span class="title"><span data-i18n="a2t">Monbukagakusho (MEXT) Scholarship</span><span class="where" data-i18n="a2w">Two-year M.Sc program · Government of Japan</span></span><span class="year">2025</span></div>
+    <div class="award"><span class="medal"></span><span class="title"><span data-i18n="a3t">Best Paper Award</span><span class="where" data-i18n="a3w">IEEE EUC 2024</span></span><span class="year">2024</span></div>
+    <div class="award"><span class="medal"></span><span class="title"><span data-i18n="a4t">First Prize, Student Research Conference</span><span class="where" data-i18n="a4w">Hanoi University of Science &amp; Technology</span></span><span class="year">2024</span></div>
+    <div class="award"><span class="medal"></span><span class="title"><span data-i18n="a5t">Creativity Award, Student Research Conference</span><span class="where" data-i18n="a5w">Hanoi University of Science &amp; Technology</span></span><span class="year">2023</span></div>
+    <div class="award"><span class="medal"></span><span class="title"><span data-i18n="a6t">3rd Place Best Student Paper Award</span><span class="where" data-i18n="a6w">IEEE WF-IoT 2022</span></span><span class="year">2022</span></div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>News</h2><span class="rule"></span></div>
+    <div class="sec-head"><h2 data-i18n="news">News</h2><span class="rule"></span></div>
     <ul class="news">
-      <li><span class="date">Feb 2026</span><span class="what">Received ComEX Top Downloaded Letter Award at IEICE Communications Express.</span></li>
-      <li><span class="date">Sep 2026</span><span class="what">Presented a tutorial on MPQUIC scheduler at APNOMS 2025.</span></li>
-      <li><span class="date">Apr 2025</span><span class="what">Awarded the Monbukagakusho (MEXT) scholarship for a two-year M.Sc program offered by the Government of Japan.</span></li>
-      <li><span class="date">Dec 2024</span><span class="what">Received the Best Paper Award at IEEE EUC 2024.</span></li>
-      <li><span class="date">Sep 2024</span><span class="what">Graduated from HUST with an excellent degree.</span></li>
-      <li><span class="date">May 2024</span><span class="what">Won First Prize at the Student Research Conference 2024, HUST.</span></li>
-      <li><span class="date">May 2023</span><span class="what">Received the Creativity Award at the Student Research Conference 2023, HUST.</span></li>
-      <li><span class="date">Nov 2022</span><span class="what">Won 3rd Place Best Student Paper Award at IEEE WF-IoT 2022.</span></li>
+      <li><span class="date">Feb 2026</span><span class="what" data-i18n="n1">Received ComEX Top Downloaded Letter Award at IEICE Communications Express.</span></li>
+      <li><span class="date">Sep 2026</span><span class="what" data-i18n="n2">Presented a tutorial on MPQUIC scheduler at APNOMS 2025.</span></li>
+      <li><span class="date">Apr 2025</span><span class="what" data-i18n="n3">Awarded the Monbukagakusho (MEXT) scholarship for a two-year M.Sc program offered by the Government of Japan.</span></li>
+      <li><span class="date">Dec 2024</span><span class="what" data-i18n="n4">Received the Best Paper Award at IEEE EUC 2024.</span></li>
+      <li><span class="date">Sep 2024</span><span class="what" data-i18n="n5">Graduated from HUST with an excellent degree.</span></li>
+      <li><span class="date">May 2024</span><span class="what" data-i18n="n6">Won First Prize at the Student Research Conference 2024, HUST.</span></li>
+      <li><span class="date">May 2023</span><span class="what" data-i18n="n7">Received the Creativity Award at the Student Research Conference 2023, HUST.</span></li>
+      <li><span class="date">Nov 2022</span><span class="what" data-i18n="n8">Won 3rd Place Best Student Paper Award at IEEE WF-IoT 2022.</span></li>
     </ul>
   </section>
 
   <section>
-    <div class="sec-head"><h2>Publications</h2><span class="rule"></span></div>
+    <div class="sec-head"><h2 data-i18n="pubs">Publications</h2><span class="rule"></span></div>
 
     <div class="pub-group">
-      <p class="pub-label">Journal Articles</p>
+      <p class="pub-label" data-i18n="journal">Journal Articles</p>
       <ol class="pubs">
         <li class="pub"><span><span class="ttl">A Novel Framework for HTTP/2 over MPQUIC: Design and Implementation</span><span class="meta"><span class="authors">Thanh Trung Nguyen, <u>Minh Hai Vu</u>, Phi Le Nguyen, Kien Nguyen</span><span class="venue">Journal of Science and Technique — Section on ICT, 2025</span></span></span></li>
         <li class="pub"><span><span class="ttl">Evaluating MPQUIC Schedulers in Dynamic Wireless Networks with 2D and 3D Mobility</span><span class="meta"><span class="authors"><u>Minh Hai Vu</u>, Thanh Trung Nguyen, Thi Ha Ly Dinh, Thanh-Hung Nguyen, Phi Le Nguyen, Kien Nguyen, Hiroo Sekiya</span><span class="venue">Computer Networks Journal, 2025</span></span></span></li>
@@ -289,7 +327,7 @@
     </div>
 
     <div class="pub-group">
-      <p class="pub-label">Conference Papers</p>
+      <p class="pub-label" data-i18n="conf">Conference Papers</p>
       <ol class="pubs">
         <li class="pub"><span><span class="ttl">D4-SAT: A Deployable, DRL-Driven, Disruption-Aware, and Dynamic MPQUIC Scheduler for Multipath Satellite Networks</span><span class="meta"><span class="authors"><u>Minh Hai Vu</u>, Akihiro Nakao</span><span class="venue">IEEE GLOBECOM 2026</span></span></span></li>
         <li class="pub"><span><span class="ttl">Logrα: A DRL-based MPQUIC Scheduler for Managing Periodicity and Heterogeneity in Satellite Networks</span><span class="meta"><span class="authors"><u>Minh Hai Vu</u>, Akihiro Nakao</span><span class="venue">IEEE CCNC 2026</span></span></span></li>
@@ -304,14 +342,132 @@
   </section>
 
   <section>
-    <div class="sec-head"><h2>Education</h2><span class="rule"></span></div>
-    <p class="edu"><span class="deg">Eng. in Information Technology</span><br/>Hanoi University of Science and Technology · 2024</p>
+    <div class="sec-head"><h2 data-i18n="edu">Education</h2><span class="rule"></span></div>
+    <p class="edu"><span class="deg" data-i18n="edu_deg">Eng. in Information Technology</span><br/><span data-i18n="edu_inst">Hanoi University of Science and Technology · 2024</span></p>
   </section>
 
   <footer>
     <span>Minh Hai Vu</span>
-    <span>Last updated Aug 2026</span>
+    <span data-i18n="updated">Last updated Aug 2026</span>
   </footer>
 </div>
+<script>
+(function(){
+  var I18N = {
+    en: {
+      role:"M.Sc Student",
+      school:", Graduate School of Engineering",
+      univ:"The University of Tokyo",
+      awards:"Awards & Honors",
+      news:"News",
+      pubs:"Publications",
+      edu:"Education",
+      journal:"Journal Articles",
+      conf:"Conference Papers",
+      a1t:"ComEX Top Downloaded Letter Award", a1w:"IEICE Communications Express",
+      a2t:"Monbukagakusho (MEXT) Scholarship", a2w:"Two-year M.Sc program · Government of Japan",
+      a3t:"Best Paper Award", a3w:"IEEE EUC 2024",
+      a4t:"First Prize, Student Research Conference", a4w:"Hanoi University of Science & Technology",
+      a5t:"Creativity Award, Student Research Conference", a5w:"Hanoi University of Science & Technology",
+      a6t:"3rd Place Best Student Paper Award", a6w:"IEEE WF-IoT 2022",
+      n1:"Received ComEX Top Downloaded Letter Award at IEICE Communications Express.",
+      n2:"Presented a tutorial on MPQUIC scheduler at APNOMS 2025.",
+      n3:"Awarded the Monbukagakusho (MEXT) scholarship for a two-year M.Sc program offered by the Government of Japan.",
+      n4:"Received the Best Paper Award at IEEE EUC 2024.",
+      n5:"Graduated from HUST with an excellent degree.",
+      n6:"Won First Prize at the Student Research Conference 2024, HUST.",
+      n7:"Received the Creativity Award at the Student Research Conference 2023, HUST.",
+      n8:"Won 3rd Place Best Student Paper Award at IEEE WF-IoT 2022.",
+      edu_deg:"Eng. in Information Technology",
+      edu_inst:"Hanoi University of Science and Technology · 2024",
+      updated:"Last updated Aug 2026"
+    },
+    ja: {
+      role:"修士課程学生",
+      school:"、工学系研究科",
+      univ:"東京大学",
+      awards:"受賞歴",
+      news:"ニュース",
+      pubs:"論文業績",
+      edu:"学歴",
+      journal:"ジャーナル論文",
+      conf:"国際会議論文",
+      a1t:"ComEX 最多ダウンロードレター賞", a1w:"IEICE Communications Express",
+      a2t:"文部科学省（MEXT）奨学金", a2w:"修士課程2年間 · 日本政府",
+      a3t:"最優秀論文賞", a3w:"IEEE EUC 2024",
+      a4t:"最優秀賞・学生研究会議", a4w:"ハノイ工科大学",
+      a5t:"創造性賞・学生研究会議", a5w:"ハノイ工科大学",
+      a6t:"学生論文賞 第3位", a6w:"IEEE WF-IoT 2022",
+      n1:"IEICE Communications Express にて ComEX 最多ダウンロードレター賞を受賞。",
+      n2:"APNOMS 2025 で MPQUIC スケジューラに関するチュートリアルを発表。",
+      n3:"日本政府による修士課程2年間の文部科学省（MEXT）奨学金を授与。",
+      n4:"IEEE EUC 2024 で最優秀論文賞を受賞。",
+      n5:"ハノイ工科大学（HUST）を優秀な成績で卒業。",
+      n6:"HUST の学生研究会議2024で最優秀賞を受賞。",
+      n7:"HUST の学生研究会議2023で創造性賞を受賞。",
+      n8:"IEEE WF-IoT 2022 で学生論文賞第3位を受賞。",
+      edu_deg:"情報技術 学士（工学）",
+      edu_inst:"ハノイ工科大学 · 2024",
+      updated:"最終更新 2026年8月"
+    },
+    vi: {
+      role:"Học viên Thạc sĩ",
+      school:", Trường Sau đại học Kỹ thuật",
+      univ:"Đại học Tokyo",
+      awards:"Giải thưởng & Vinh danh",
+      news:"Tin tức",
+      pubs:"Công bố khoa học",
+      edu:"Học vấn",
+      journal:"Bài báo tạp chí",
+      conf:"Bài báo hội nghị",
+      a1t:"Giải thưởng Bài báo được tải nhiều nhất ComEX", a1w:"IEICE Communications Express",
+      a2t:"Học bổng Monbukagakusho (MEXT)", a2w:"Chương trình Thạc sĩ 2 năm · Chính phủ Nhật Bản",
+      a3t:"Giải thưởng Bài báo Xuất sắc nhất", a3w:"IEEE EUC 2024",
+      a4t:"Giải Nhất, Hội nghị Nghiên cứu Sinh viên", a4w:"Đại học Bách khoa Hà Nội",
+      a5t:"Giải Sáng tạo, Hội nghị Nghiên cứu Sinh viên", a5w:"Đại học Bách khoa Hà Nội",
+      a6t:"Giải Ba Bài báo Sinh viên Xuất sắc", a6w:"IEEE WF-IoT 2022",
+      n1:"Nhận Giải thưởng Bài báo được tải nhiều nhất ComEX tại IEICE Communications Express.",
+      n2:"Trình bày tutorial về bộ lập lịch MPQUIC tại APNOMS 2025.",
+      n3:"Được trao học bổng Monbukagakusho (MEXT) cho chương trình Thạc sĩ 2 năm của Chính phủ Nhật Bản.",
+      n4:"Nhận Giải thưởng Bài báo Xuất sắc nhất tại IEEE EUC 2024.",
+      n5:"Tốt nghiệp Đại học Bách khoa Hà Nội (HUST) loại Xuất sắc.",
+      n6:"Đạt Giải Nhất tại Hội nghị Nghiên cứu Sinh viên 2024, HUST.",
+      n7:"Nhận Giải Sáng tạo tại Hội nghị Nghiên cứu Sinh viên 2023, HUST.",
+      n8:"Đạt Giải Ba Bài báo Sinh viên Xuất sắc tại IEEE WF-IoT 2022.",
+      edu_deg:"Kỹ sư Công nghệ Thông tin",
+      edu_inst:"Đại học Bách khoa Hà Nội · 2024",
+      updated:"Cập nhật lần cuối Tháng 8, 2026"
+    }
+  };
+
+  function setLang(lang){
+    if(!I18N[lang]) lang = "en";
+    var dict = I18N[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if(dict[k] != null) el.textContent = dict[k];
+    });
+    document.querySelectorAll(".lang-btn").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+    });
+    try{ localStorage.setItem("lang", lang); }catch(e){}
+  }
+
+  document.querySelectorAll(".lang-btn").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
+  });
+
+  var saved;
+  try{ saved = localStorage.getItem("lang"); }catch(e){}
+  if(!saved){
+    var nav = (navigator.language || "en").toLowerCase();
+    if(nav.indexOf("ja") === 0) saved = "ja";
+    else if(nav.indexOf("vi") === 0) saved = "vi";
+    else saved = "en";
+  }
+  setLang(saved);
+})();
+</script>
 </body>
 </html>
