@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Japan Visa Application</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#EEF0F4; --surface:#FFFFFF; --surface-2:#F5F7FA;
+  --ink:#1B2432; --ink-soft:#55617A; --ink-faint:#8B95A8;
+  --line:#D7DCE6; --line-strong:#C2C9D6;
+  --primary:#23375E; --primary-soft:#3A5488;
+  --accent:#B23A48; --accent-soft:#F4E3E5;
+  --focus:#3A5488; --focus-ring:rgba(58,84,136,.30);
+  --shadow:0 1px 2px rgba(20,30,50,.04),0 8px 24px rgba(20,30,50,.06);
+  --radius:12px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F131A; --surface:#1A1F29; --surface-2:#222835;
+    --ink:#E7EBF2; --ink-soft:#A6B0C2; --ink-faint:#6E7A90;
+    --line:#2C3340; --line-strong:#3A4352;
+    --primary:#8AA6D8; --primary-soft:#7089BC;
+    --accent:#E08A93; --accent-soft:#3A2429;
+    --focus:#8AA6D8; --focus-ring:rgba(138,166,216,.28);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F131A; --surface:#1A1F29; --surface-2:#222835;
+  --ink:#E7EBF2; --ink-soft:#A6B0C2; --ink-faint:#6E7A90;
+  --line:#2C3340; --line-strong:#3A4352;
+  --primary:#8AA6D8; --primary-soft:#7089BC;
+  --accent:#E08A93; --accent-soft:#3A2429;
+  --focus:#8AA6D8; --focus-ring:rgba(138,166,216,.28);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px; margin:0 auto; padding:0 20px 96px;}
+
+/* ---- Toolbar ---- */
+.toolbar{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  display:flex; align-items:center; gap:12px;
+  padding:11px 20px; margin-bottom:0;
+}
+.toolbar .tb-inner{max-width:880px; margin:0 auto; width:100%; display:flex; align-items:center; gap:12px;}
+.tb-title{font-family:"Noto Serif",Georgia,serif; font-weight:600; font-size:15px; color:var(--ink); letter-spacing:.01em;}
+.tb-spacer{flex:1}
+.btn{
+  font-family:inherit; font-size:13.5px; font-weight:600; cursor:pointer;
+  border:1px solid var(--line-strong); background:var(--surface); color:var(--ink);
+  padding:8px 14px; border-radius:9px; display:inline-flex; align-items:center; gap:7px;
+  transition:border-color .15s,background .15s,transform .05s;
+}
+.btn:hover{border-color:var(--primary-soft)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--primary); color:#fff; border-color:var(--primary)}
+:root[data-theme="dark"] .btn-primary,
+:root:not([data-theme="light"]) .btn-primary{color:#0F131A}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn-primary{color:#fff}}
+.btn-primary:hover{background:var(--primary-soft); border-color:var(--primary-soft)}
+.btn svg{width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.9}
+
+/* ---- Masthead ---- */
+.masthead{padding:44px 0 28px; border-bottom:1px solid var(--line); margin-bottom:34px;}
+.mast-eyebrow{
+  font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 14px;
+}
+.masthead h1{
+  font-family:"Noto Serif",Georgia,serif; font-weight:700;
+  font-size:34px; line-height:1.15; margin:0 0 12px; color:var(--ink);
+  text-wrap:balance; letter-spacing:-.01em;
+}
+.masthead p{margin:0; color:var(--ink-soft); max-width:60ch; font-size:15px;}
+.mast-note{
+  margin-top:18px; font-size:13px; color:var(--ink-soft);
+  background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--primary-soft);
+  padding:11px 14px; border-radius:8px;
+}
+.mast-note b{color:var(--ink)}
+
+/* ---- Section ---- */
+.section{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow); margin-bottom:22px; overflow:hidden;
+}
+.sec-head{display:flex; align-items:baseline; gap:14px; padding:20px 24px 14px;}
+.sec-num{
+  font-family:"Noto Serif",Georgia,serif; font-weight:600; font-size:15px;
+  color:#fff; background:var(--primary); flex:0 0 auto;
+  width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center;
+  font-variant-numeric:tabular-nums; align-self:center;
+}
+:root[data-theme="dark"] .sec-num,
+:root:not([data-theme="light"]) .sec-num{color:#0F131A}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .sec-num{color:#fff}}
+.sec-titles{display:flex; flex-direction:column; gap:1px}
+.sec-title{font-family:"Noto Serif",Georgia,serif; font-weight:600; font-size:19px; color:var(--ink); line-height:1.25}
+.sec-en{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); font-weight:500}
+.sec-body{padding:6px 24px 24px}
+
+/* ---- Grid & fields ---- */
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 20px}
+.grid-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px 20px}
+.full{grid-column:1/-1}
+.field{display:flex; flex-direction:column; gap:6px; min-width:0}
+label,.lbl{font-size:13.5px; font-weight:600; color:var(--ink); display:flex; align-items:baseline; gap:7px; flex-wrap:wrap}
+.en{font-size:11px; font-weight:500; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-faint)}
+.req{color:var(--accent); font-weight:700}
+.hint{font-size:12px; color:var(--ink-faint); margin-top:-1px}
+
+input[type=text],input[type=date],input[type=email],input[type=tel],input[type=number],textarea,select{
+  font-family:inherit; font-size:14.5px; color:var(--ink);
+  background:var(--surface-2); border:1px solid var(--line-strong); border-radius:9px;
+  padding:9px 11px; width:100%; transition:border-color .14s,box-shadow .14s,background .14s;
+}
+textarea{resize:vertical; min-height:64px; line-height:1.5}
+input::placeholder,textarea::placeholder{color:var(--ink-faint); opacity:.85}
+input:focus,textarea:focus,select:focus{
+  outline:none; border-color:var(--focus); background:var(--surface);
+  box-shadow:0 0 0 3px var(--focus-ring);
+}
+input:hover:not(:focus),textarea:hover:not(:focus),select:hover:not(:focus){border-color:var(--primary-soft)}
+select{appearance:none; -webkit-appearance:none; cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%; background-size:5px 5px,5px 5px; background-repeat:no-repeat; padding-right:34px;}
+input[readonly]{background:color-mix(in srgb,var(--surface-2) 60%,transparent); color:var(--ink-soft); cursor:not-allowed}
+.mirror-locked input,.mirror-locked textarea{opacity:.7; pointer-events:none; background:color-mix(in srgb,var(--surface-2) 55%,transparent)}
+
+/* ---- Radio / choice pills ---- */
+.choices{display:flex; flex-wrap:wrap; gap:8px}
+.choice{position:relative}
+.choice input{position:absolute; opacity:0; width:0; height:0}
+.choice span{
+  display:inline-block; padding:8px 14px; border:1px solid var(--line-strong); border-radius:8px;
+  background:var(--surface-2); font-size:14px; color:var(--ink-soft); cursor:pointer; font-weight:500;
+  transition:all .14s; user-select:none;
+}
+.choice input:hover+span{border-color:var(--primary-soft)}
+.choice input:checked+span{
+  background:var(--primary); border-color:var(--primary); color:#fff; font-weight:600;
+}
+:root[data-theme="dark"] .choice input:checked+span,
+:root:not([data-theme="light"]) .choice input:checked+span{color:#0F131A}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .choice input:checked+span{color:#fff}}
+.choice input:focus-visible+span{box-shadow:0 0 0 3px var(--focus-ring)}
+.yn .choice span{min-width:64px; text-align:center}
+.yn .choice input:checked+span{background:var(--accent); border-color:var(--accent)}
+.yn .choice.no input:checked+span{background:var(--primary-soft); border-color:var(--primary-soft)}
+
+/* ---- Declaration rows ---- */
+.decl{display:flex; align-items:flex-start; gap:14px; padding:13px 0; border-top:1px solid var(--line)}
+.decl:first-of-type{border-top:none}
+.decl-q{flex:1; font-size:14px; color:var(--ink); line-height:1.45}
+.decl .yn{flex:0 0 auto}
+
+/* ---- Checkbox ---- */
+.checkrow{display:flex; align-items:center; gap:10px; padding:4px 0 2px}
+.checkrow input{width:18px; height:18px; accent-color:var(--primary); cursor:pointer; flex:0 0 auto}
+.checkrow label{font-weight:600; cursor:pointer}
+
+/* ---- Mirror block ---- */
+.mirror{
+  background:var(--surface-2); border:1px dashed var(--line-strong); border-radius:10px;
+  padding:14px 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px 22px;
+}
+.mirror .mrow{display:flex; flex-direction:column; gap:2px; min-width:0}
+.mirror .mk{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint); font-weight:600}
+.mirror .mv{font-size:14.5px; color:var(--ink); font-weight:500; word-break:break-word}
+.mirror .mv.empty{color:var(--ink-faint); font-weight:400; font-style:italic}
+.mirror-cap{font-size:12.5px; color:var(--ink-soft); margin:0 0 10px}
+
+/* ---- Itinerary table ---- */
+.itin-scroll{overflow-x:auto; border:1px solid var(--line); border-radius:10px}
+table.itin{border-collapse:collapse; width:100%; min-width:640px}
+table.itin th{
+  background:var(--surface-2); text-align:left; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--ink-soft); font-weight:700; padding:10px 12px; border-bottom:1px solid var(--line-strong); white-space:nowrap;
+}
+table.itin td{padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top}
+table.itin tr:last-child td{border-bottom:none}
+table.itin input,table.itin textarea{background:var(--surface); border:1px solid transparent; border-radius:6px; padding:7px 8px}
+table.itin input:hover,table.itin textarea:hover{border-color:var(--line-strong)}
+table.itin td.rm{width:38px; text-align:center}
+.col-date{width:150px}
+.col-act{min-width:200px}
+.icon-btn{
+  border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft);
+  width:28px; height:28px; border-radius:7px; cursor:pointer; font-size:15px; line-height:1;
+  display:inline-flex; align-items:center; justify-content:center; transition:all .14s;
+}
+.icon-btn:hover{border-color:var(--accent); color:var(--accent)}
+.addrow{margin-top:12px}
+
+/* ---- Footer ---- */
+.foot{margin-top:30px; padding-top:22px; border-top:1px solid var(--line); color:var(--ink-faint); font-size:12.5px; line-height:1.6}
+.foot b{color:var(--ink-soft)}
+.savebadge{font-size:12px; color:var(--ink-faint); display:inline-flex; align-items:center; gap:6px}
+.savebadge .dot{width:7px; height:7px; border-radius:50%; background:#4C9A6A; flex:0 0 auto}
+
+.sign-area{display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; margin-top:8px}
+.sign-line{border-top:1px dashed var(--line-strong); margin-top:38px; padding-top:6px; font-size:12px; color:var(--ink-faint); text-align:center}
+
+/* ---- Print header (screen-hidden) ---- */
+.print-only{display:none}
+
+@media (max-width:640px){
+  .grid,.grid-3,.mirror{grid-template-columns:1fr}
+  .masthead h1{font-size:27px}
+  .sec-body{padding:6px 16px 20px}
+  .sec-head{padding:18px 16px 12px}
+  .wrap{padding:0 14px 72px}
+  .sign-area{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===================== PRINT ===================== */
+@media print{
+  @page{size:A4; margin:14mm 14mm}
+  body{background:#fff; color:#000; font-size:11px}
+  .toolbar,.addrow,.rm,.mast-note,.foot .savebadge,.no-print{display:none!important}
+  .wrap{max-width:none; padding:0}
+  .print-only{display:block}
+  .print-head{text-align:center; margin-bottom:14px; border-bottom:1.5px solid #000; padding-bottom:10px}
+  .print-head h1{font-family:"Noto Serif",serif; font-size:19px; margin:0 0 3px}
+  .print-head p{margin:0; font-size:10.5px; color:#333}
+  .masthead{display:none}
+  .section{box-shadow:none; border:1px solid #999; break-inside:avoid; margin-bottom:11px; border-radius:0}
+  .sec-head{padding:9px 12px 5px}
+  .sec-num{background:#000!important; color:#fff!important; width:22px; height:22px; font-size:12px}
+  .sec-title{font-size:14px}
+  .sec-en{color:#555}
+  .sec-body{padding:2px 12px 12px}
+  .grid,.grid-3{gap:8px 16px}
+  input,textarea,select{
+    background:#fff!important; border:none!important; border-bottom:1px solid #333!important; border-radius:0!important;
+    color:#000!important; padding:2px 2px!important; box-shadow:none!important; -webkit-appearance:none; appearance:none;
+    background-image:none!important; padding-right:2px!important;
+  }
+  textarea{border:1px solid #999!important; padding:4px!important}
+  .en,.hint{color:#666!important}
+  .choice span{border:1px solid #666!important; background:#fff!important; color:#000!important; padding:3px 9px!important}
+  .choice input:checked+span{background:#000!important; color:#fff!important; border-color:#000!important}
+  .yn .choice input:checked+span{background:#000!important; border-color:#000!important}
+  .mirror{background:#fff!important; border:1px solid #999!important}
+  .mirror .mv.empty{color:#999!important}
+  .itin-scroll{overflow:visible; border:1px solid #999}
+  table.itin{min-width:0}
+  table.itin th{background:#eee!important; color:#000!important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  table.itin input,table.itin textarea{border:none!important; border-bottom:1px solid #ccc!important}
+  .mirror-locked input,.mirror-locked textarea{opacity:1!important}
+  .sign-line{border-top:1px solid #000}
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+  <div class="tb-inner">
+    <span class="tb-title">🗾 Japan Visa Application</span>
+    <span class="tb-spacer"></span>
+    <span class="savebadge" id="saveBadge"><span class="dot"></span> Auto-saved in your browser</span>
+    <button class="btn" id="clearBtn" title="Clear all entered information">Clear all</button>
+    <button class="btn btn-primary" id="printBtn">
+      <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>
+      Print / Save PDF
+    </button>
+  </div>
+</div>
+
+<div class="print-only print-head">
+  <h1>Japan Visa Application — Information Summary</h1>
+  <p>Visa Application to Enter Japan · Invitation Letter · Itinerary in Japan</p>
+</div>
+
+<div class="wrap">
+
+  <header class="masthead no-print">
+    <p class="mast-eyebrow">For Vietnamese applicants · Short-term stay</p>
+    <h1>Japan Visa Application Details</h1>
+    <p>Enter — <b>once</b> — all the information needed for three documents: the <b>Visa Application Form</b>, the <b>Invitation Letter</b>, and the <b>Itinerary in Japan</b>. When you're done, click <b>Print / Save PDF</b> to review and use when filling in and submitting your application.</p>
+    <div class="mast-note">
+      Enter your name and passport number in <b>CAPITAL LETTERS</b>, exactly as they appear in your passport. Dates use the <b>Day / Month / Year</b> format. Your information is stored only on your device and is never sent anywhere.
+    </div>
+  </header>
+
+  <!-- ===== 1. Applicant identity ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">1</div>
+      <div class="sec-titles"><div class="sec-title">Applicant</div><div class="sec-en">Personal details</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="grid">
+        <div class="field">
+          <label for="surname">Surname <span class="req">*</span></label>
+          <input type="text" id="surname" placeholder="e.g. BUI" autocomplete="off">
+          <span class="hint">CAPITALS, exactly as in your passport</span>
+        </div>
+        <div class="field">
+          <label for="givenNames">Given &amp; middle names <span class="req">*</span></label>
+          <input type="text" id="givenNames" placeholder="e.g. THI THIA" autocomplete="off">
+        </div>
+        <div class="field full">
+          <label for="otherNames">Other names (if any)</label>
+          <input type="text" id="otherNames" placeholder="Any other names you have used — leave blank if none">
+        </div>
+        <div class="field">
+          <label for="dob">Date of birth <span class="req">*</span></label>
+          <input type="date" id="dob">
+        </div>
+        <div class="field">
+          <label>Sex <span class="req">*</span></label>
+          <div class="choices" role="radiogroup">
+            <label class="choice"><input type="radio" name="sex" value="Male"><span>Male</span></label>
+            <label class="choice"><input type="radio" name="sex" value="Female"><span>Female</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pobCity">Place of birth — City</label>
+          <input type="text" id="pobCity" placeholder="e.g. Kim Thanh">
+        </div>
+        <div class="field">
+          <label for="pobProvince">Place of birth — State / Province</label>
+          <input type="text" id="pobProvince" placeholder="e.g. Hai Duong">
+        </div>
+        <div class="field">
+          <label for="pobCountry">Place of birth — Country</label>
+          <select id="pobCountry" data-country></select>
+        </div>
+        <div class="field">
+          <label for="nationality">Nationality <span class="req">*</span></label>
+          <select id="nationality" data-nationality></select>
+        </div>
+        <div class="field">
+          <label>Marital status</label>
+          <div class="choices" role="radiogroup">
+            <label class="choice"><input type="radio" name="marital" value="Single"><span>Single</span></label>
+            <label class="choice"><input type="radio" name="marital" value="Married"><span>Married</span></label>
+            <label class="choice"><input type="radio" name="marital" value="Widowed"><span>Widowed</span></label>
+            <label class="choice"><input type="radio" name="marital" value="Divorced"><span>Divorced</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="formerNationality">Former / other nationalities</label>
+          <input type="text" id="formerNationality" placeholder="Leave blank if none">
+        </div>
+        <div class="field">
+          <label for="idNo">National ID number</label>
+          <input type="text" id="idNo" placeholder="e.g. 030165006270" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. Passport ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">2</div>
+      <div class="sec-titles"><div class="sec-title">Passport</div><div class="sec-en">Passport details</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="grid">
+        <div class="field full">
+          <label>Passport type <span class="req">*</span></label>
+          <div class="choices" role="radiogroup">
+            <label class="choice"><input type="radio" name="passportType" value="Diplomatic"><span>Diplomatic</span></label>
+            <label class="choice"><input type="radio" name="passportType" value="Official"><span>Official</span></label>
+            <label class="choice"><input type="radio" name="passportType" value="Ordinary"><span>Ordinary</span></label>
+            <label class="choice"><input type="radio" name="passportType" value="Other"><span>Other</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="passportNo">Passport No. <span class="req">*</span></label>
+          <input type="text" id="passportNo" placeholder="e.g. C1699344" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="passportPlace">Place of issue</label>
+          <input type="text" id="passportPlace" placeholder="e.g. Hai Duong">
+        </div>
+        <div class="field">
+          <label for="passportIssue">Date of issue</label>
+          <input type="date" id="passportIssue">
+        </div>
+        <div class="field">
+          <label for="passportExpiry">Date of expiry <span class="req">*</span></label>
+          <input type="date" id="passportExpiry">
+        </div>
+        <div class="field">
+          <label for="passportAuthority">Issuing authority</label>
+          <input type="text" id="passportAuthority" placeholder="e.g. Immigration Department">
+        </div>
+        <div class="field">
+          <label for="coeNo">Certificate of Eligibility No.</label>
+          <input type="text" id="coeNo" placeholder="Optional — leave blank if none">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. Purpose & stay ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">3</div>
+      <div class="sec-titles"><div class="sec-title">Purpose &amp; Stay</div><div class="sec-en">Purpose &amp; length of stay</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="grid">
+        <div class="field">
+          <label for="purpose">Purpose of visit / status of residence <span class="req">*</span></label>
+          <select id="purpose">
+            <option value="">— Select —</option>
+            <option>Tourism / Sightseeing</option>
+            <option>Visiting relatives</option>
+            <option>Visiting friends</option>
+            <option>Business / Commerce</option>
+            <option>Conference / Seminar</option>
+            <option>Other (specify)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="purposeOther">Details (if "Other")</label>
+          <input type="text" id="purposeOther" placeholder="e.g. Visiting a friend in Tokyo">
+        </div>
+        <div class="field">
+          <label for="lengthStay">Intended length of stay (days)</label>
+          <input type="number" id="lengthStay" min="1" max="90" placeholder="e.g. 7" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="arrivalDate">Date of arrival in Japan</label>
+          <input type="date" id="arrivalDate">
+        </div>
+        <div class="field">
+          <label for="portEntry">Port of entry</label>
+          <input type="text" id="portEntry" placeholder="e.g. Narita / Haneda">
+        </div>
+        <div class="field">
+          <label for="carrier">Name of ship or airline</label>
+          <input type="text" id="carrier" placeholder="e.g. VN300 / Vietnam Airlines">
+        </div>
+        <div class="field full">
+          <label for="previousStays">Previous stays in Japan (dates &amp; duration)</label>
+          <textarea id="previousStays" placeholder="e.g. May 2018 — 7 days. Leave blank if you have never been to Japan."></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. Accommodation ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">4</div>
+      <div class="sec-titles"><div class="sec-title">Accommodation in Japan</div><div class="sec-en">Where you intend to stay</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="grid">
+        <div class="field">
+          <label for="stayName">Name of hotel or person you'll stay with</label>
+          <input type="text" id="stayName" placeholder="e.g. a friend's name">
+        </div>
+        <div class="field">
+          <label for="stayTel">Tel.</label>
+          <input type="tel" id="stayTel" placeholder="e.g. +81 80 8284 3459">
+        </div>
+        <div class="field full">
+          <label for="stayAddress">Address</label>
+          <textarea id="stayAddress" placeholder="e.g. Odaiba, Tokyo"></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. Current address & occupation ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">5</div>
+      <div class="sec-titles"><div class="sec-title">Current Address &amp; Occupation</div><div class="sec-en">In your home country</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="grid">
+        <div class="field full">
+          <label for="residentialAddress">Current residential address <span class="req">*</span></label>
+          <textarea id="residentialAddress" placeholder="e.g. Lai Khe Ward, Hai Phong City, Viet Nam"></textarea>
+        </div>
+        <div class="field">
+          <label for="homeTel">Tel.</label>
+          <input type="tel" id="homeTel" placeholder="e.g. 0225 3xxxxxx">
+        </div>
+        <div class="field">
+          <label for="mobile">Mobile No.</label>
+          <input type="tel" id="mobile" placeholder="e.g. 09xx xxx xxx">
+        </div>
+        <div class="field full">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="e.g. name@example.com">
+        </div>
+        <div class="field full">
+          <label for="occupation">Current profession &amp; position</label>
+          <input type="text" id="occupation" placeholder="e.g. Retired / Company employee">
+        </div>
+        <div class="field">
+          <label for="employerName">Employer name</label>
+          <input type="text" id="employerName" placeholder="Leave blank if not applicable">
+        </div>
+        <div class="field">
+          <label for="employerTel">Employer tel.</label>
+          <input type="tel" id="employerTel" placeholder="">
+        </div>
+        <div class="field full">
+          <label for="employerAddress">Employer address</label>
+          <textarea id="employerAddress" placeholder=""></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. Guarantor ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">6</div>
+      <div class="sec-titles"><div class="sec-title">Guarantor in Japan</div><div class="sec-en">Guarantor or reference</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="grid">
+        <div class="field">
+          <label for="gName">Name</label>
+          <input type="text" id="gName" placeholder="Friend's full name">
+        </div>
+        <div class="field">
+          <label for="gTel">Tel.</label>
+          <input type="tel" id="gTel" placeholder="e.g. +81 80 8284 3459">
+        </div>
+        <div class="field full">
+          <label for="gAddress">Address</label>
+          <textarea id="gAddress" placeholder="e.g. Odaiba, Tokyo"></textarea>
+        </div>
+        <div class="field">
+          <label for="gDob">Date of birth</label>
+          <input type="date" id="gDob">
+        </div>
+        <div class="field">
+          <label>Sex</label>
+          <div class="choices" role="radiogroup">
+            <label class="choice"><input type="radio" name="gSex" value="Male"><span>Male</span></label>
+            <label class="choice"><input type="radio" name="gSex" value="Female"><span>Female</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="gRelationship">Relationship to applicant</label>
+          <input type="text" id="gRelationship" placeholder="e.g. Friend">
+        </div>
+        <div class="field">
+          <label for="gOccupation">Profession &amp; position</label>
+          <input type="text" id="gOccupation" placeholder="e.g. Student, The University of Tokyo">
+        </div>
+        <div class="field">
+          <label for="gStatus">Nationality &amp; immigration status</label>
+          <input type="text" id="gStatus" placeholder="e.g. Vietnamese, student">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. Inviter ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">7</div>
+      <div class="sec-titles"><div class="sec-title">Inviter in Japan</div><div class="sec-en">Inviter</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="checkrow no-print">
+        <input type="checkbox" id="sameAsGuarantor">
+        <label for="sameAsGuarantor">Inviter is the same as the guarantor above (Section 6)</label>
+      </div>
+      <div class="grid" id="inviterGrid" style="margin-top:8px">
+        <div class="field">
+          <label for="iName">Name</label>
+          <input type="text" id="iName" placeholder="Inviter's full name">
+        </div>
+        <div class="field">
+          <label for="iTel">Tel.</label>
+          <input type="tel" id="iTel" placeholder="">
+        </div>
+        <div class="field full">
+          <label for="iAddress">Address</label>
+          <textarea id="iAddress" placeholder=""></textarea>
+        </div>
+        <div class="field">
+          <label for="iDob">Date of birth</label>
+          <input type="date" id="iDob">
+        </div>
+        <div class="field">
+          <label>Sex</label>
+          <div class="choices" role="radiogroup">
+            <label class="choice"><input type="radio" name="iSex" value="Male"><span>Male</span></label>
+            <label class="choice"><input type="radio" name="iSex" value="Female"><span>Female</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="iRelationship">Relationship to applicant</label>
+          <input type="text" id="iRelationship" placeholder="">
+        </div>
+        <div class="field">
+          <label for="iOccupation">Profession &amp; position</label>
+          <input type="text" id="iOccupation" placeholder="">
+        </div>
+        <div class="field">
+          <label for="iStatus">Nationality &amp; immigration status</label>
+          <input type="text" id="iStatus" placeholder="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. Declarations ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">8</div>
+      <div class="sec-titles"><div class="sec-title">Declarations</div><div class="sec-en">Have you ever…</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="field full" style="margin-bottom:6px">
+        <label for="partnerOccupation">Partner's occupation (or parents', if the applicant is a minor)</label>
+        <input type="text" id="partnerOccupation" placeholder="">
+      </div>
+
+      <div class="decl">
+        <div class="decl-q">…been convicted of a crime or offence in any country?</div>
+        <div class="choices yn" role="radiogroup">
+          <label class="choice"><input type="radio" name="decl1" value="Yes"><span>Yes</span></label>
+          <label class="choice no"><input type="radio" name="decl1" value="No"><span>No</span></label>
+        </div>
+      </div>
+      <div class="decl">
+        <div class="decl-q">…been sentenced to imprisonment for 1 year or more in any country?</div>
+        <div class="choices yn" role="radiogroup">
+          <label class="choice"><input type="radio" name="decl2" value="Yes"><span>Yes</span></label>
+          <label class="choice no"><input type="radio" name="decl2" value="No"><span>No</span></label>
+        </div>
+      </div>
+      <div class="decl">
+        <div class="decl-q">…been deported or removed from Japan or any country for overstaying your visa or violating any law?</div>
+        <div class="choices yn" role="radiogroup">
+          <label class="choice"><input type="radio" name="decl3" value="Yes"><span>Yes</span></label>
+          <label class="choice no"><input type="radio" name="decl3" value="No"><span>No</span></label>
+        </div>
+      </div>
+      <div class="decl">
+        <div class="decl-q">…been convicted and sentenced for a drug offence (narcotics, marijuana, opium, stimulants or psychotropic substances)?</div>
+        <div class="choices yn" role="radiogroup">
+          <label class="choice"><input type="radio" name="decl4" value="Yes"><span>Yes</span></label>
+          <label class="choice no"><input type="radio" name="decl4" value="No"><span>No</span></label>
+        </div>
+      </div>
+      <div class="decl">
+        <div class="decl-q">…engaged in prostitution, or the intermediation or solicitation of a prostitute, or the provision of a place for prostitution, or any activity connected to prostitution?</div>
+        <div class="choices yn" role="radiogroup">
+          <label class="choice"><input type="radio" name="decl5" value="Yes"><span>Yes</span></label>
+          <label class="choice no"><input type="radio" name="decl5" value="No"><span>No</span></label>
+        </div>
+      </div>
+      <div class="decl">
+        <div class="decl-q">…committed trafficking in persons or incited or aided another to commit such an offence?</div>
+        <div class="choices yn" role="radiogroup">
+          <label class="choice"><input type="radio" name="decl6" value="Yes"><span>Yes</span></label>
+          <label class="choice no"><input type="radio" name="decl6" value="No"><span>No</span></label>
+        </div>
+      </div>
+
+      <div class="field full" style="margin-top:14px">
+        <label for="declDetails">If you answered "Yes" to any question, provide details</label>
+        <textarea id="declDetails" placeholder="Leave blank if all answers are No"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. Invitation letter ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">9</div>
+      <div class="sec-titles"><div class="sec-title">Invitation Letter</div><div class="sec-en">Letter of invitation</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="grid">
+        <div class="field">
+          <label for="consulate">To: Japanese Embassy / Consulate in</label>
+          <select id="consulate" data-country></select>
+        </div>
+        <div class="field">
+          <label for="letterDate">Date of letter</label>
+          <input type="date" id="letterDate">
+        </div>
+      </div>
+
+      <div style="margin:18px 0 8px" class="lbl">Inviting person</div>
+      <div class="grid">
+        <div class="field">
+          <label for="inviterFullName">Full name</label>
+          <input type="text" id="inviterFullName" placeholder="Inviter's full name">
+          <span class="hint">Usually the inviter in Section 7</span>
+        </div>
+        <div class="field">
+          <label for="inviterPostal">Postal code 〒</label>
+          <input type="text" id="inviterPostal" placeholder="e.g. 153-0041" inputmode="numeric">
+        </div>
+        <div class="field full">
+          <label for="inviterAddr2">Address</label>
+          <textarea id="inviterAddr2" placeholder="e.g. Odaiba, Tokyo"></textarea>
+        </div>
+        <div class="field">
+          <label for="inviterPhone">Telephone</label>
+          <input type="tel" id="inviterPhone" placeholder="e.g. 080-8284-3459">
+        </div>
+        <div class="field">
+          <label for="inviterFax">Fax (if any)</label>
+          <input type="tel" id="inviterFax" placeholder="Leave blank if none">
+        </div>
+      </div>
+
+      <div style="margin:18px 0 8px" class="lbl">If invited by a company / organization</div>
+      <div class="grid">
+        <div class="field">
+          <label for="orgContact">Contact name</label>
+          <input type="text" id="orgContact" placeholder="Optional">
+        </div>
+        <div class="field">
+          <label for="orgDept">Department / Division</label>
+          <input type="text" id="orgDept" placeholder="Optional">
+        </div>
+        <div class="field">
+          <label for="orgPhone">Telephone</label>
+          <input type="tel" id="orgPhone" placeholder="Optional">
+        </div>
+        <div class="field">
+          <label for="orgFax">Fax</label>
+          <input type="tel" id="orgFax" placeholder="Optional">
+        </div>
+      </div>
+
+      <div style="margin:18px 0 8px" class="lbl">Visa applicant <span class="hint" style="font-weight:400">(auto-filled from Section 1)</span></div>
+      <div class="mirror" id="applicantMirror">
+        <div class="mrow"><span class="mk">Full name (Latin)</span><span class="mv empty" data-m="name">—</span></div>
+        <div class="mrow"><span class="mk">Sex</span><span class="mv empty" data-m="sex">—</span></div>
+        <div class="mrow"><span class="mk">Date of birth</span><span class="mv empty" data-m="dob">—</span></div>
+        <div class="mrow"><span class="mk">Age</span><span class="mv empty" data-m="age">—</span></div>
+        <div class="mrow"><span class="mk">Nationality</span><span class="mv empty" data-m="nat">—</span></div>
+        <div class="mrow"><span class="mk">Occupation</span><span class="mv empty" data-m="occ">—</span></div>
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <div class="field">
+          <label for="additionalApplicants">Number of additional applicants</label>
+          <input type="number" id="additionalApplicants" min="0" value="" placeholder="0" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="field full" style="margin-top:16px">
+        <label for="invPurpose">(1) Purpose of invitation</label>
+        <textarea id="invPurpose" placeholder="e.g. To invite my friend to visit and tour Tokyo for 7 days."></textarea>
+      </div>
+      <div class="field full" style="margin-top:14px">
+        <label for="invBackground">(2) Background to invitation</label>
+        <textarea id="invBackground" placeholder="Explain the reason and background of the invitation in detail."></textarea>
+      </div>
+      <div class="field full" style="margin-top:14px">
+        <label for="invRelationship">(3) Relationship with applicant</label>
+        <textarea id="invRelationship" placeholder="e.g. Friend of the visa applicant."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. Itinerary ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">10</div>
+      <div class="sec-titles"><div class="sec-title">Itinerary in Japan</div><div class="sec-en">Day-by-day plan</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="itin-scroll">
+        <table class="itin">
+          <thead>
+            <tr>
+              <th class="col-date">Date</th>
+              <th class="col-act">Activity plan</th>
+              <th>Contact</th>
+              <th>Accommodation</th>
+              <th class="rm no-print"></th>
+            </tr>
+          </thead>
+          <tbody id="itinBody"></tbody>
+        </table>
+      </div>
+      <button class="btn addrow no-print" id="addRowBtn">＋ Add day</button>
+    </div>
+  </section>
+
+  <!-- ===== 11. Closing ===== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-num">11</div>
+      <div class="sec-titles"><div class="sec-title">Remarks &amp; Declaration</div><div class="sec-en">Final section</div></div>
+    </div>
+    <div class="sec-body">
+      <div class="field full">
+        <label for="remarks">Remarks / special circumstances (if any)</label>
+        <textarea id="remarks" placeholder="Optional"></textarea>
+      </div>
+      <div class="grid" style="margin-top:16px">
+        <div class="field">
+          <label for="applicationDate">Date of application</label>
+          <input type="date" id="applicationDate">
+        </div>
+      </div>
+      <div class="sign-area">
+        <div class="sign-line">Signature of applicant</div>
+        <div class="sign-line">Date</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <p><b>Note:</b> This summary is for consolidating and checking your information. You still need to fill in and sign the official forms when submitting your application. A Japan short-stay visa application for Vietnamese citizens typically includes: passport, a 4.5×3.5 cm photo, the visa application form, an itinerary, flight/hotel bookings, proof of funds (bank statements), and an invitation letter + letter of guarantee if visiting friends or relatives.</p>
+    <p style="margin-top:10px" class="savebadge"><span class="dot"></span> Your information is auto-saved in your browser (never sent anywhere). Use "Clear all" to reset.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORE = "jp-visa-form-en-v2";
+
+  /* ---------- Country / nationality selects ---------- */
+  var countries = ["Vietnam","Japan","South Korea","China","Taiwan","Thailand",
+    "Singapore","Malaysia","Philippines","Indonesia","Cambodia","Laos","India","United States",
+    "Canada","United Kingdom","France","Germany","Australia","Other"];
+  var nationalities = ["Vietnamese","Japanese","Korean","Chinese","Thai","Filipino","American","Other"];
+
+  function fillSelect(el, arr, def){
+    var html = '<option value="">— Select —</option>';
+    arr.forEach(function(c){ html += '<option'+(c===def?' selected':'')+'>'+c+'</option>'; });
+    el.innerHTML = html;
+  }
+  document.querySelectorAll('[data-country]').forEach(function(el){ fillSelect(el, countries, "Vietnam"); });
+  document.querySelectorAll('[data-nationality]').forEach(function(el){ fillSelect(el, nationalities, "Vietnamese"); });
+
+  /* ---------- Itinerary rows ---------- */
+  var itinBody = document.getElementById('itinBody');
+  function rowHTML(){
+    return '<td class="col-date"><input type="date" data-itin="date"></td>'
+      + '<td class="col-act"><textarea data-itin="act" rows="1" placeholder="e.g. Sightseeing in Asakusa, Senso-ji temple"></textarea></td>'
+      + '<td><input type="text" data-itin="contact" placeholder="Phone / contact person"></td>'
+      + '<td><input type="text" data-itin="acc" placeholder="Hotel / place to stay"></td>'
+      + '<td class="rm no-print"><button type="button" class="icon-btn" title="Remove row" aria-label="Remove row">✕</button></td>';
+  }
+  function addRow(){
+    var tr = document.createElement('tr');
+    tr.innerHTML = rowHTML();
+    tr.querySelector('.icon-btn').addEventListener('click', function(){
+      tr.remove(); if(!itinBody.children.length) addRow(); save();
+    });
+    tr.querySelectorAll('input,textarea').forEach(bindSave);
+    itinBody.appendChild(tr);
+    return tr;
+  }
+  document.getElementById('addRowBtn').addEventListener('click', function(){ addRow(); save(); });
+
+  /* ---------- Applicant mirror (section 9) ---------- */
+  function fmtDate(v){
+    if(!v) return "";
+    var p = v.split('-'); if(p.length!==3) return v;
+    return p[2]+'/'+p[1]+'/'+p[0];
+  }
+  function calcAge(v){
+    if(!v) return "";
+    var d = new Date(v); if(isNaN(d)) return "";
+    var t = new Date(2026,7,26); // today: 2026-08-26
+    var a = t.getFullYear()-d.getFullYear();
+    var m = t.getMonth()-d.getMonth();
+    if(m<0 || (m===0 && t.getDate()<d.getDate())) a--;
+    return a>=0 ? String(a) : "";
+  }
+  function setMirror(key, val){
+    var el = document.querySelector('.mv[data-m="'+key+'"]');
+    if(!el) return;
+    if(val){ el.textContent = val; el.classList.remove('empty'); }
+    else { el.textContent = "—"; el.classList.add('empty'); }
+  }
+  function updateMirror(){
+    var sur = val('surname'), giv = val('givenNames');
+    var name = (sur+' '+giv).trim();
+    setMirror('name', name);
+    var sex = radio('sex'); setMirror('sex', sex);
+    var dob = val('dob'); setMirror('dob', fmtDate(dob));
+    setMirror('age', calcAge(dob));
+    setMirror('nat', val('nationality'));
+    setMirror('occ', val('occupation'));
+  }
+  function val(id){ var e=document.getElementById(id); return e?e.value.trim():""; }
+  function radio(name){ var e=document.querySelector('input[name="'+name+'"]:checked'); return e?e.value:""; }
+
+  ['surname','givenNames','dob','nationality','occupation'].forEach(function(id){
+    var e=document.getElementById(id); if(e) e.addEventListener('input', updateMirror);
+  });
+  document.querySelectorAll('input[name="sex"]').forEach(function(e){ e.addEventListener('change', updateMirror); });
+
+  /* ---------- Inviter = guarantor ---------- */
+  var pairMap = [['gName','iName'],['gTel','iTel'],['gAddress','iAddress'],['gDob','iDob'],
+    ['gRelationship','iRelationship'],['gOccupation','iOccupation'],['gStatus','iStatus']];
+  var chk = document.getElementById('sameAsGuarantor');
+  var inviterGrid = document.getElementById('inviterGrid');
+  function syncInviter(){
+    if(!chk.checked) return;
+    pairMap.forEach(function(p){
+      var a=document.getElementById(p[0]), b=document.getElementById(p[1]);
+      if(a&&b) b.value=a.value;
+    });
+    var gs=radio('gSex');
+    document.querySelectorAll('input[name="iSex"]').forEach(function(r){ r.checked=(r.value===gs); });
+  }
+  function applyLock(){
+    if(chk.checked){ inviterGrid.classList.add('mirror-locked'); syncInviter(); }
+    else { inviterGrid.classList.remove('mirror-locked'); }
+  }
+  chk.addEventListener('change', function(){ applyLock(); save(); });
+  // keep in sync while locked
+  ['gName','gTel','gAddress','gDob','gRelationship','gOccupation','gStatus'].forEach(function(id){
+    var e=document.getElementById(id); if(e) e.addEventListener('input', function(){ if(chk.checked){ syncInviter(); save(); } });
+  });
+  document.querySelectorAll('input[name="gSex"]').forEach(function(e){
+    e.addEventListener('change', function(){ if(chk.checked){ syncInviter(); save(); } });
+  });
+
+  /* ---------- Persistence ---------- */
+  var badge = document.getElementById('saveBadge');
+  var saveTimer=null;
+  function collect(){
+    var data={fields:{},radios:{},itin:[]};
+    document.querySelectorAll('input[id],textarea[id],select[id]').forEach(function(e){
+      if(e.type==='radio'||e.type==='checkbox') return;
+      data.fields[e.id]=e.value;
+    });
+    data.checkbox = {sameAsGuarantor: chk.checked};
+    document.querySelectorAll('input[type=radio]').forEach(function(r){
+      if(r.checked) data.radios[r.name]=r.value;
+    });
+    itinBody.querySelectorAll('tr').forEach(function(tr){
+      var o={};
+      tr.querySelectorAll('[data-itin]').forEach(function(c){ o[c.getAttribute('data-itin')]=c.value; });
+      data.itin.push(o);
+    });
+    return data;
+  }
+  function save(){
+    try{
+      localStorage.setItem(STORE, JSON.stringify(collect()));
+      if(badge){ badge.style.opacity='1'; }
+    }catch(e){}
+  }
+  function debouncedSave(){ clearTimeout(saveTimer); saveTimer=setTimeout(save,250); }
+  function bindSave(e){
+    var ev = (e.tagName==='SELECT'||e.type==='radio'||e.type==='checkbox')?'change':'input';
+    e.addEventListener(ev, debouncedSave);
+  }
+
+  function restore(){
+    var raw; try{ raw=localStorage.getItem(STORE); }catch(e){ raw=null; }
+    if(!raw) return false;
+    var data; try{ data=JSON.parse(raw); }catch(e){ return false; }
+    if(data.fields) Object.keys(data.fields).forEach(function(id){
+      var e=document.getElementById(id); if(e && e.type!=='radio' && e.type!=='checkbox') e.value=data.fields[id];
+    });
+    if(data.radios) Object.keys(data.radios).forEach(function(name){
+      var e=document.querySelector('input[name="'+name+'"][value="'+data.radios[name]+'"]'); if(e) e.checked=true;
+    });
+    if(data.checkbox) chk.checked=!!data.checkbox.sameAsGuarantor;
+    if(data.itin && data.itin.length){
+      itinBody.innerHTML='';
+      data.itin.forEach(function(o){
+        var tr=addRow();
+        tr.querySelectorAll('[data-itin]').forEach(function(c){
+          var k=c.getAttribute('data-itin'); if(o[k]!=null) c.value=o[k];
+        });
+      });
+    }
+    return true;
+  }
+
+  /* ---------- Pre-fill from the 7-day Tokyo trip plan (visiting a friend) ---------- */
+  var DEFAULTS = {
+    fields: {
+      purpose: "Visiting friends",
+      purposeOther: "Visiting a friend studying at the University of Tokyo (UTokyo)",
+      lengthStay: "7",
+      stayName: "Friend (guarantor)",
+      stayAddress: "Odaiba, Tokyo",
+      gAddress: "Odaiba, Tokyo",
+      gRelationship: "Friend",
+      gOccupation: "Student, The University of Tokyo",
+      gStatus: "Vietnamese, student",
+      additionalApplicants: "0",
+      invPurpose: "To invite my friend to visit and tour Tokyo for 7 days.",
+      invBackground: "We are close friends. I am currently studying at the University of Tokyo and would like to invite my friend to visit, and to show them the university and the sights of Tokyo.",
+      invRelationship: "Friend of the visa applicant."
+    },
+    checkboxSame: true,
+    itin: [
+      {act:"Arrive in Tokyo (Narita/Haneda), rest; evening walk along the Odaiba seaside – Rainbow Bridge, Statue of Liberty replica", acc:"Friend's home – Odaiba, Tokyo"},
+      {act:"Asakusa: Senso-ji temple, Nakamise street; Tokyo Skytree", acc:"Friend's home – Odaiba, Tokyo"},
+      {act:"Meiji Shrine, Harajuku – Omotesando, Shibuya crossing & Hachiko statue", acc:"Friend's home – Odaiba, Tokyo"},
+      {act:"Hakone (day trip): Mt. Fuji, Lake Ashi, onsen hot springs", acc:"Friend's home – Odaiba, Tokyo"},
+      {act:"The University of Tokyo (UTokyo – Hongo campus): Akamon, Yasuda, Sanshiro Pond; Ueno Park & Ameyoko market", acc:"Friend's home – Odaiba, Tokyo"},
+      {act:"Explore Odaiba: Miraikan/teamLab museum, Gundam statue (DiverCity), Odaiba beach", acc:"Friend's home – Odaiba, Tokyo"},
+      {act:"Shopping in Odaiba (DiverCity/Aqua City); depart to airport, fly back to Vietnam", acc:"— (fly back to Vietnam)"}
+    ]
+  };
+  function applyDefaults(){
+    Object.keys(DEFAULTS.fields).forEach(function(id){
+      var e=document.getElementById(id); if(e) e.value=DEFAULTS.fields[id];
+    });
+    if(DEFAULTS.checkboxSame) chk.checked=true;
+    itinBody.innerHTML='';
+    DEFAULTS.itin.forEach(function(o){
+      var tr=addRow();
+      tr.querySelectorAll('[data-itin]').forEach(function(c){
+        var k=c.getAttribute('data-itin'); if(o[k]!=null) c.value=o[k];
+      });
+    });
+  }
+
+  /* ---------- Init ---------- */
+  var had = restore();
+  if(!had) applyDefaults();
+  if(!itinBody.children.length){ addRow(); addRow(); addRow(); }
+  // default application date = today if empty
+  var appDate=document.getElementById('applicationDate');
+  if(appDate && !appDate.value) appDate.value='2026-08-26';
+
+  // bind all existing controls for autosave
+  document.querySelectorAll('input,textarea,select').forEach(bindSave);
+  applyLock();
+  updateMirror();
+  if(!had) save();
+
+  /* ---------- Buttons ---------- */
+  document.getElementById('printBtn').addEventListener('click', function(){
+    if(chk.checked) syncInviter();
+    window.print();
+  });
+  document.getElementById('clearBtn').addEventListener('click', function(){
+    if(!confirm('Clear all entered information? This cannot be undone.')) return;
+    try{ localStorage.removeItem(STORE); }catch(e){}
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>
