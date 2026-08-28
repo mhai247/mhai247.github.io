@@ -470,7 +470,7 @@ table.itin td.rm{width:38px; text-align:center}
       <div class="grid">
         <div class="field">
           <label for="stayName">Name of hotel or person you'll stay with</label>
-          <input type="text" id="stayName" placeholder="e.g. a friend's name">
+          <input type="text" id="stayName" placeholder="e.g. hotel name or host's name">
         </div>
         <div class="field">
           <label for="stayTel">Tel.</label>
@@ -478,7 +478,7 @@ table.itin td.rm{width:38px; text-align:center}
         </div>
         <div class="field full">
           <label for="stayAddress">Address</label>
-          <textarea id="stayAddress" placeholder="e.g. Odaiba, Tokyo"></textarea>
+          <textarea id="stayAddress" placeholder="e.g. hotel address in Tokyo"></textarea>
         </div>
       </div>
     </div>
@@ -842,7 +842,7 @@ table.itin td.rm{width:38px; text-align:center}
 <script>
 (function(){
   "use strict";
-  var STORE = "jp-visa-form-en-v2";
+  var STORE = "jp-visa-form-en-v3";
 
   /* ---------- Country / nationality selects ---------- */
   var countries = ["Vietnam","Japan","South Korea","China","Taiwan","Thailand",
@@ -1006,8 +1006,8 @@ table.itin td.rm{width:38px; text-align:center}
       purpose: "Visiting friends",
       purposeOther: "Visiting a friend studying at the University of Tokyo (UTokyo)",
       lengthStay: "7",
-      stayName: "Friend (guarantor)",
-      stayAddress: "Odaiba, Tokyo",
+      stayName: "Keisei Richmond Hotel Tokyo Kinshicho",
+      stayAddress: "3-2-7 Kotobashi, Sumida-ku, Tokyo 130-0022",
       gAddress: "Odaiba, Tokyo",
       gRelationship: "Friend",
       gOccupation: "Student, The University of Tokyo",
@@ -1019,13 +1019,13 @@ table.itin td.rm{width:38px; text-align:center}
     },
     checkboxSame: true,
     itin: [
-      {act:"Arrive in Tokyo (Narita/Haneda), rest; evening walk along the Odaiba seaside – Rainbow Bridge, Statue of Liberty replica", acc:"Friend's home – Odaiba, Tokyo"},
-      {act:"Asakusa: Senso-ji temple, Nakamise street; Tokyo Skytree", acc:"Friend's home – Odaiba, Tokyo"},
-      {act:"Meiji Shrine, Harajuku – Omotesando, Shibuya crossing & Hachiko statue", acc:"Friend's home – Odaiba, Tokyo"},
-      {act:"Hakone (day trip): Mt. Fuji, Lake Ashi, onsen hot springs", acc:"Friend's home – Odaiba, Tokyo"},
-      {act:"The University of Tokyo (UTokyo – Hongo campus): Akamon, Yasuda, Sanshiro Pond; Ueno Park & Ameyoko market", acc:"Friend's home – Odaiba, Tokyo"},
-      {act:"Explore Odaiba: Miraikan/teamLab museum, Gundam statue (DiverCity), Odaiba beach", acc:"Friend's home – Odaiba, Tokyo"},
-      {act:"Shopping in Odaiba (DiverCity/Aqua City); depart to airport, fly back to Vietnam", acc:"— (fly back to Vietnam)"}
+      {act:"Arrive in Tokyo (Narita/Haneda), check in at Keisei Richmond Hotel (Kinshicho, Sumida), rest; evening stroll near the hotel with a view of Tokyo Skytree", acc:"Keisei Richmond Hotel, Kinshicho"},
+      {act:"Asakusa: Senso-ji temple, Nakamise street; Tokyo Skytree", acc:"Keisei Richmond Hotel, Kinshicho"},
+      {act:"Meiji Shrine, Harajuku – Omotesando, Shibuya crossing & Hachiko statue", acc:"Keisei Richmond Hotel, Kinshicho"},
+      {act:"Hakone (day trip): Mt. Fuji, Lake Ashi, onsen hot springs", acc:"Keisei Richmond Hotel, Kinshicho"},
+      {act:"The University of Tokyo (UTokyo – Hongo campus): Akamon, Yasuda, Sanshiro Pond; Ueno Park & Ameyoko market", acc:"Keisei Richmond Hotel, Kinshicho"},
+      {act:"Explore Odaiba: Miraikan/teamLab museum, Gundam statue (DiverCity), Odaiba beach", acc:"Keisei Richmond Hotel, Kinshicho"},
+      {act:"Shopping near the hotel in Kinshicho (Termina / Arcakit); depart to airport, fly back to Vietnam", acc:"— (fly back to Vietnam)"}
     ]
   };
   function applyDefaults(){
